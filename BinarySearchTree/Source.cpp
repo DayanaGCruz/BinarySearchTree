@@ -68,11 +68,14 @@ node* deleteRecursive(node* temp, std::string key) {
 		temp->right = deleteRecursive(temp->right, key); 
 	}
 	else {
-		if (temp->left == NULL) { 
-			return temp->right;
+		if (temp->left == NULL && temp->right == NULL) { 
+			return root;
 		}
-		else if (temp->right == NULL) { 
+		else if (temp->right == NULL) {
 			return temp->left; 
+		}
+		else if (temp->left == NULL) {
+			return temp->right;
 		}
 		else {
 			//temp->data = minValue(temp->right);
